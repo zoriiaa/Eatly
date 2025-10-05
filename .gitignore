@@ -1,0 +1,56 @@
+# -------------------------
+# Python / Flask
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.venv/
+env/
+ENV/
+
+# Flask instance folder (secrets, DB)
+instance/
+*.db
+*.sqlite3
+
+# Environment files
+.env
+*.env
+
+# Migrations (можна прибрати, якщо хочете трекати)
+migrations/
+
+# -------------------------
+# Frontend (HTML/CSS/JS)
+# -------------------------
+# Node modules
+node_modules/
+# Build artifacts (якщо будете щось компілювати)
+dist/
+build/
+# Package lock files (якщо npm/yarn не потрібен у проєкті)
+package-lock.json
+yarn.lock
+
+# Cache / Temp
+*.log
+*.bak
+*.swp
+*.tmp
+.cache/
+coverage/
+*.sass-cache
+*.css.map
+*.js.map
+
+# -------------------------
+# IDE / OS
+# -------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
