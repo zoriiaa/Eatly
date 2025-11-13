@@ -7,10 +7,6 @@ class UserLogin:
         # Користувач вважається авторизованим
         return True
 
-    @property
-    def is_active(self):
-        # Користувач активний (не заблокований)
-        return True
 
     @property
     def is_anonymous(self):
@@ -24,6 +20,7 @@ class UserLogin:
     @property
     def name(self):
         return self.user.name
+
 
 
 
