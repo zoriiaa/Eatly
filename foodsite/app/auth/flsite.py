@@ -65,7 +65,7 @@ def settings(name):
 def recipes():
     return "Сторінка рецептів"
 
-@app.route("/recipe_details")
+@app.route("/recipes/recipe_details")
 @login_required
 def recipe_details():
     return "Подробиці рецепту"
@@ -168,4 +168,5 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
 
