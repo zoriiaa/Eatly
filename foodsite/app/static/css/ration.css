@@ -1,0 +1,164 @@
+.profile-nav {
+  margin: 35px auto;
+  border-radius: 37px;
+  background-color: #f3e7cf;
+  padding: 12px 10px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 560px;
+  font-size: 17px;
+}
+.profile-nav__item--active {
+  font-weight: 700;
+}
+
+.slider_days {
+  width: 100px;
+  margin: 0 auto;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+}
+
+.slick-prev-day,
+.slick-next-day {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.slick-prev-day {
+  left: -45px;
+}
+
+.slick-next-day {
+  right: -45px;
+}
+
+.daily_ration-content {
+  display: flex;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  justify-content: space-evenly;
+  align-items: start;
+}
+.calorie-info__diagrams {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calorie-diagram {
+  width: 100%;
+  height: 100%;
+}
+
+.calorie-info__total {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 23px;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.nutrients {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.nutrient {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nutrient__icon {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.nutrient__progress-circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.nutrient__info {
+  text-align: left;
+}
+
+.nutrient__name {
+  font-size: 19px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 7px;
+}
+
+.nutrient__value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #386641;
+  /* margin: 0; */
+  line-height: 1.3;
+}
+
+.calories {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.stravas {
+  width: 600px;
+}
+.breakfast_header {
+  background-color: #c1db7e;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 18px;
+  font-size: 18px;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.breakfast_header-el {
+  display: flex;
+  gap: 40px;
+}
+
+.strava {
+  width: 560px;
+  margin: 20px 0 20px 20px;
+}
+
+.strava-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.stravanamecal {
+  display: flex;
+  gap: 40px;
+}
+
+.strava_cal,
+.stravaccal {
+  color: #386641;
+}
+
+.hrestik {
+  display: flex;
+  gap: 45px;
+}

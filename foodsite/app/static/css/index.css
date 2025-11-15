@@ -1,0 +1,192 @@
+.container_main {
+  width: 1300px;
+  margin: 0 auto;
+}
+
+.eatly_quote {
+  text-align: center;
+  margin: 20px 0 40px 0;
+}
+
+.title_eatly {
+  color: #386641;
+}
+.quote {
+  color: #a8c958;
+  font-weight: 700;
+}
+
+.slider {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+  position: relative;
+}
+.slider .item {
+  padding: 0 20px;
+}
+
+.slider .item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 0;
+}
+
+.slick-prev {
+  left: 10px;
+}
+
+.slick-next {
+  right: 10px;
+}
+
+.calorie-section {
+  margin-bottom: 50px;
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.calorie-section__bg {
+  background-color: #f1e9d9;
+  border-radius: 80px;
+  padding: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.nutrients {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.nutrient {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nutrient__icon {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.nutrient__progress-circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.nutrient__info {
+  text-align: left;
+}
+
+.nutrient__name {
+  font-size: 19px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 7px;
+}
+
+.nutrient__value {
+  font-size: 16px;
+  font-weight: 500;
+  color: #386641;
+  /* margin: 0; */
+  line-height: 1.3;
+}
+
+.calorie-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.calorie-info__diagrams {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calorie-diagram {
+  width: 100%;
+  height: 100%;
+}
+
+.calorie-info__total {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 23px;
+  font-weight: 500;
+  color: black;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.calorie-section__right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 300px;
+}
+
+.calorie-section__title {
+  font-size: 22px;
+  font-weight: 500;
+  color: black;
+  margin: 0;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.calorie-section__subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #386641;
+  margin: 0;
+  text-align: center;
+}
+
+.calorie-section__button {
+  display: inline-block;
+  background-color: #386641;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.6875rem 2.625rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  border: none;
+  text-align: center;
+}
+
+.calorie-section__button:hover {
+  opacity: 0.9;
+}

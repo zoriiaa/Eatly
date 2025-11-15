@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.container {
+  max-width: 1426px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header {
+  background-color: #a8c958;
+  color: #fff;
+  padding: 3px 0;
+}
+
+.header__logo-text {
+  color: #386641;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.header__nav-recipes {
+  padding: 6px 24px;
+  background-color: #386641;
+  border-radius: 36px;
+}
+
+footer {
+  background-color: #a8c958;
+  padding: 20px 0;
+  margin-top: auto;
+}
+
+.footer__content {
+  max-width: 240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.footer__content > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__logo {
+  width: 40px;
+  height: 40px;
+}
+
+.footer__logo-text {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2d5016;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__link {
+  color: #2d5016;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.footer__link:hover {
+  opacity: 0.7;
+}
+body {
+  background-color: #fef9f0;
+}
