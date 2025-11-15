@@ -2,24 +2,27 @@ class UserLogin:
     def __init__(self, user):
         self.user = user
 
-    @property
-    def is_authenticated(self):
-        # Користувач вважається авторизованим
-        return True
-
-
-    @property
-    def is_anonymous(self):
-        # Не анонімний
-        return False
-
     def get_id(self):
-        #збереження сесії
         return str(self.user.id)
 
     @property
-    def name(self):
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_name(self):
         return self.user.name
+
+    def get_email(self):
+        return self.user.email
+
 
 
 
