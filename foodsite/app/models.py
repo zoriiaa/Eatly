@@ -1,5 +1,6 @@
+from app import db
 from sqlalchemy import Enum
-from auth.flsite import db
+from werkzeug.security import generate_password_hash, check_password_hash
 
 favourites_table = db.Table(
     'favourites',
@@ -13,12 +14,12 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
-    password_hash = db.Column(db.String(30), nullable=False)
+    psw = db.Column(db.String(128), nullable=False)
     age = db.Column(db.Integer)
     height = db.Column(db.Float)
     weight = db.Column(db.Float)
     gender = db.Column(Enum('Чоловік', 'Жінка', name='gender_variants'), nullable=True)
-    goal = db.Column(Enum('Набрати вагу', 'Скинути вагу', 'Підтримувати вагу', name='goal_types'), nullable=True)
+    goal = db.Column(Enum('Набрати вагу', 'Скинути вагу', 'Підтримувати вагу', name='goal_types', native_enum=False), nullable=True)
     goal_weight = db.Column(db.Float)
 
     menu = db.relationship('MenuInfo', back_populates='user', cascade='all, delete-orphan')
@@ -27,7 +28,11 @@ class User(db.Model):
         secondary=favourites_table,
         back_populates='favourite_by'
     )
+    def set_password(self, password):
+        self.psw = generate_password_hash(password)
 
+    def check_password(self, password):
+        return check_password_hash(self.psw, password)
     def __repr__(self):
         return f'User {self.name} with email {self.email}, age {self.age}, height {self.height}, weight {self.weight}'
 
@@ -75,3 +80,4 @@ class MenuItems(db.Model):
 
     menu = db.relationship('MenuInfo', back_populates='items')
     recipe = db.relationship('Recipe', back_populates='menu_items')
+
