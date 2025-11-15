@@ -33,8 +33,6 @@ class User(db.Model):
 
     def check_password(self, password):
         return check_password_hash(self.psw, password)
-    def __repr__(self):
-        return f'User {self.name} with email {self.email}, age {self.age}, height {self.height}, weight {self.weight}'
 
 class Recipe(db.Model):
     __tablename__ = 'recipes'
@@ -55,9 +53,6 @@ class Recipe(db.Model):
         secondary=favourites_table,
         back_populates='favourite_recipes'
     )
-
-    def __repr__(self):
-        return f'Recipe {self.name}, ingredients {self.ingredients}'
 
 class MenuInfo(db.Model):
     __tablename__ = 'menu_info'
@@ -80,4 +75,3 @@ class MenuItems(db.Model):
 
     menu = db.relationship('MenuInfo', back_populates='items')
     recipe = db.relationship('Recipe', back_populates='menu_items')
-
