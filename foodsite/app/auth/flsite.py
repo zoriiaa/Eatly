@@ -3,16 +3,14 @@ import datetime
 import os
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
 from UserLogin import UserLogin
-# from FDataBase import getUserByEmail
 from werkzeug.security import generate_password_hash, check_password_hash
 from email_validator import validate_email, EmailNotValidError
-from models import db, User
+from models import db, User, Recipe, MenuInfo, MenuItems
 
-#Конфігурація
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flsite.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.secret_key = '2f7297e79002c7c0d6b27c52cf91fc307944d4fe'
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-secret-key-change-me')
 
 db.init_app(app)
 
@@ -20,9 +18,11 @@ with app.app_context():
     db.create_all()
 
 login_manager = LoginManager(app)
+
 login_manager.login_view = 'login'
 login_manager.login_message = "Авторизуйтесь для доступу до закритих сторінок"
 login_manager.login_message_category = "success"
+
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -31,27 +31,31 @@ def load_user(user_id):
         return UserLogin(user)
     return None
 
+
 @app.route("/")
 def index():
     return "Головна сторінка"
+
 
 @app.route("/profile/<name>")
 @login_required
 def profile(name):
     return f"Користувач: {name}"
 
+
 @app.route("/profile/<name>/daily_diet")
 @login_required
 def daily_diet(name):
     return "Денний раціон"
-    #return render_template("Денний раціон", username=username)
+    # return render_template("Денний раціон", username=username)
 
 
 @app.route("/profile/<name>/favorite")
 @login_required
 def favorite(name):
     return "Улюблені рецепти"
-    #return render_template("Улюблені рецепти", username=username)
+    # return render_template("Улюблені рецепти", username=username)
+
 
 @app.route("/profile/<name>/settings")
 @login_required
@@ -60,15 +64,18 @@ def settings(name):
     #             <p>user info: {current_user.get_id()}"""
     return "Налаштування"
 
+
 @app.route("/recipes")
 @login_required
 def recipes():
     return "Сторінка рецептів"
 
+
 @app.route("/recipes/recipe_details")
 @login_required
 def recipe_details():
     return "Подробиці рецепту"
+
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
@@ -105,6 +112,7 @@ def register():
             return redirect("/register_info")
     return render_template('register.html', title="Register")
 
+
 @app.route("/register_info", methods=["POST", "GET"])
 def register_info():
     email = session.get("email")
@@ -118,10 +126,11 @@ def register_info():
         return redirect("/register")
     if request.method == "POST":
         age = int(request.form["age"])
-        height = int(request.form["height"])
-        weight = int(request.form["weight"])
+        height = float(request.form["height"])
+        weight = float(request.form["weight"])
         goal = request.form["goal"]
         gender = request.form["gender"]
+        goal_weight = float(request.form.get("goal_weight", 0))
         if not 0 < age < 100 and 20 < height < 300 and 0 < weight < 650:
             flash("Невірні параметри! Перевір введені значення.", "error")
             return redirect("/register_info")
@@ -130,6 +139,7 @@ def register_info():
         user.weight = weight
         user.goal = goal
         user.gender = gender
+        user.goal_weight = goal_weight
         db.session.commit()
         flash("Профіль успішно збережено!", "success")
         return redirect("/login")
@@ -149,12 +159,13 @@ def login():
             flash("Вхід успішний!", "success")
 
             res = make_response(redirect(url_for('profile', name=user.name)))
-            res.set_cookie("logged", "yes", max_age=30*24*3600)  # 30 днів
+            res.set_cookie("logged", "yes", max_age=30 * 24 * 3600)  # 30 днів
             return res
         else:
             flash("Невірний email або пароль", "error")
 
     return render_template("login.html", title="Login")
+
 
 @app.route('/logout')
 @login_required
@@ -168,5 +179,3 @@ def logout():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
