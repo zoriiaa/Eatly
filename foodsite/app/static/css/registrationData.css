@@ -1,0 +1,18 @@
+select {
+  appearance: none;       
+  -webkit-appearance: none;
+  -moz-appearance: none;   
+  
+  background-color: #f5ebd7;
+  border: none;
+  border-radius: 40px;
+  padding: 10px 40px 10px 15px; 
+  font-size: 16px;
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='25' height='26' viewBox='0 0 25 26' fill='none'><path d='M6.25 9.75L12.5 16.25L18.75 9.75' stroke='%231E1E1E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+}
+select option {
+    padding: 20px;        
+}
