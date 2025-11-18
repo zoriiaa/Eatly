@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація - Eatly</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/registration.css" />
+        <link rel="stylesheet" href="css/registrationData.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="header__logo" target="main">
+          <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+          <span class="header__logo-text">Eatly</span>
+        </a>
+        <nav class="header__nav">
+          <ul>
+            <li>
+              <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+                Рецепти
+              </a>
+            </li>
+            <li>
+              <a href=""><img src="images/Profile.svg" alt="Profile" /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+        <div class="registration-container">
+            <h1 class="title">Особисті параметри</h1>
+
+            <form class="registration-form">
+                <div class="form-group">
+                    <label class="form-label">Вік</label>
+                    <input type="number" class="form-input" min="0" max="100" placeholder="18" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Зріст</label>
+                    <input type="number" class="form-input" min="0" max="250" placeholder="188" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Вага</label>
+                    <input type="number" class="form-input" min="0" max="300" placeholder="62" required>
+                </div>
+                 <div class="form-group">
+                    <label class="form-label">Ціль</label>
+                    <select class="form-input" required>
+                        <option value=""></option>
+                        <option value="male">Зменшення ваги</option>
+                        <option value="female">Набір ваги</option>
+                        <option value="other">Підтримка ваги</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Стать</label>
+                    <select class="form-input" required>
+                        <option value=""></option>
+                        <option value="male">Чоловіча</option>
+                        <option value="female">Жіноча</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+                <div class="form-footer">
+                    <a href="login.html" class="login-link">Я вже маю акаунт</a>
+                    <button type="submit" class="submit-btn" formaction="account.html">Готово</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+      <div class="footer__content">
+        <div>
+          <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+          <span class="footer__logo-text">Eatly</span>
+        </div>
+        <div class="footer__links">
+          <a href="#" class="footer__link">Контакти</a>
+          <a href="#" class="footer__link">Про нас</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="JS/registration.js"></script>
+</body>
+</html>

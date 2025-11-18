@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Реєстрація - Eatly</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="header__logo" target="main">
+        <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+        <span class="header__logo-text">Eatly</span>
+      </a>
+      <nav class="header__nav">
+        <ul>
+          <li>
+            <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+              Рецепти
+            </a>
+          </li>
+          <li>
+            <a href=""><img src="images/Profile.svg" alt="Profile" /></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main class="main">
+    <div class="login-container">
+      <h1 class="title">Вхід</h1>
+
+      <form class="login-form">
+        <div class="form-group">
+          <label class="form-label">E-mail або логін</label>
+          <input type="email" class="form-input" placeholder="Example23@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Пароль</label>
+          <div class="password-wrapper">
+            <input type="password" class="form-input password-input" placeholder="************" required>
+            <img src="images/eye-off.svg" alt="Toggle password" class="eye-icon">
+          </div>
+        </div>
+        <div class="form-footer-top">
+          <label class="form-label remember-label">
+            <input type="checkbox" class="form-input remember-input" id="rememberMe">
+            Запам'ятати мене
+          </label>
+          <a href="registration.html" class="login-link">Ще не маєте профілю?</a>
+        </div>
+        <div class="form-footer">
+          <button type="submit" class="submit-btn" formaction="account.html">Увійти</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <div class="footer__content">
+      <div>
+        <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+        <span class="footer__logo-text">Eatly</span>
+      </div>
+      <div class="footer__links">
+        <a href="#" class="footer__link">Контакти</a>
+        <a href="#" class="footer__link">Про нас</a>
+      </div>
+    </div>
+  </footer>
+  <script src="JS/login.js"></script>
+</body>
+
+</html>

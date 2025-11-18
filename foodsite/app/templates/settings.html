@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/settings.css" />
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.profile-nav__item');
+      const currentPath = window.location.pathname.split('/').pop();
+
+      links.forEach((link) => {
+        link.classList.remove('profile-nav__item--active');
+
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+          link.classList.add('profile-nav__item--active');
+        }
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="header__logo" target="main">
+        <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+        <span class="header__logo-text">Eatly</span>
+      </a>
+      <nav class="header__nav">
+        <ul>
+          <li>
+            <a class="header__nav-recipes" href="findRecipes.html">Рецепти</a>
+          </li>
+          <li>
+            <a href="#"><img src="images/Profile.svg" alt="Profile" /></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <nav class="profile-nav">
+      <a href="ration.html" class="profile-nav__item" target="ration">Денний раціон</a>
+      <a href="favorites.html" class="profile-nav__item" target="favorites">Улюблені страви</a>
+      <a href="settings.html" class="profile-nav__item" target="settings">Налаштування</a>
+    </nav>
+    <form class="profile-form" id="profileForm">
+      <div>
+        <!--У value підставити значення з бази-->
+        <label for="age">Вік</label>
+        <input type="number" id="age" value="18" readonly>
+      </div>
+      <div>
+        <label for="weight">Вага</label>
+        <input type="number" id="weight" value="62" readonly>
+      </div>
+      <div>
+        <label for="height">Зріст</label>
+        <input type="number" id="height" value="188" readonly>
+      </div>
+      <div>
+        <label for="goal">Ціль</label>
+        <select id="goal" disabled>
+          <option>Скинути вагу</option>
+          <option>Набрати вагу</option>
+          <option>Підтримувати вагу</option>
+        </select>
+      </div>
+      <div>
+        <label for="gender">Стать</label>
+        <select id="gender" disabled>
+          <option>Жіноча</option>
+          <option>Чоловіча</option>
+          <option>Інше</option>
+        </select>
+      </div>
+      <div>
+        <label for="desired-weight">Бажана вага</label>
+        <input type="number" id="desired-weight" value="62" readonly>
+      </div>
+    </form>
+    <div class="buttons">
+      <button type="button" class="edit-btn" id="editBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 20H21M16.5 3.5C16.8978 3.10217 17.4374 2.87868 18 2.87868C18.2786 2.87868 18.5544 2.93355 18.8118 3.04015C19.0692 3.14676 19.303 3.30301 19.5 3.5C19.697 3.69698 19.8532 3.93083 19.9598 4.1882C20.0665 4.44557 20.1213 4.72142 20.1213 5C20.1213 5.27857 20.0665 5.55442 19.9598 5.81179C19.8532 6.06916 19.697 6.30301 19.5 6.5L7 19L3 20L4 16L16.5 3.5Z"
+            stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Редагувати профіль
+      </button>
+      <button type="button" class="save-btn" id="saveBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M12 20H21M16.5 3.5C16.8978 3.10217 17.4374 2.87868 18 2.87868C18.2786 2.87868 18.5544 2.93355 18.8118 3.04015C19.0692 3.14676 19.303 3.30301 19.5 3.5C19.697 3.69698 19.8532 3.93083 19.9598 4.1882C20.0665 4.44557 20.1213 4.72142 20.1213 5C20.1213 5.27857 20.0665 5.55442 19.9598 5.81179C19.8532 6.06916 19.697 6.30301 19.5 6.5L7 19L3 20L4 16L16.5 3.5Z"
+            stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Зберегти зміни
+      </button>
+      <button type="button" class="delete-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M3 6H5M5 6H21M5 6V20C5 20.5304 5.21071 21.0391 5.58579 21.4142C5.96086 21.7893 6.46957 22 7 22H17C17.5304 22 18.0391 21.7893 18.4142 21.4142C18.7893 21.0391 19 20.5304 19 20V6M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6"
+            stroke="#1E1E1E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Видалити профіль
+      </button>
+    </div>
+  </main>
+  <footer>
+    <div class="footer__content">
+      <div>
+        <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+        <span class="footer__logo-text">Eatly</span>
+      </div>
+      <div class="footer__links">
+        <a href="#" class="footer__link">Контакти</a>
+        <a href="#" class="footer__link">Про нас</a>
+      </div>
+    </div>
+  </footer>
+  <script src="JS/settings.js"></script>
+</body>
+
+</html>

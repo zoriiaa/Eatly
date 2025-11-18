@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your ration</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/slick.css" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/ration.css" />
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const links = document.querySelectorAll('.profile-nav__item');
+        const currentPath = window.location.pathname.split('/').pop();
+
+        links.forEach((link) => {
+          link.classList.remove('profile-nav__item--active');
+
+          const href = link.getAttribute('href');
+          if (href === currentPath) {
+            link.classList.add('profile-nav__item--active');
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="header__logo" target="main">
+          <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+          <span class="header__logo-text">Eatly</span>
+        </a>
+        <nav class="header__nav">
+          <ul>
+            <li>
+              <a class="header__nav-recipes" href="findRecipes.html">Рецепти</a>
+            </li>
+            <li>
+              <a href="#"><img src="images/Profile.svg" alt="Profile" /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <nav class="profile-nav">
+        <a href="ration.html" class="profile-nav__item" target="ration">Денний раціон</a>
+        <a href="favorites.html" class="profile-nav__item" target="favorites">Улюблені страви</a>
+        <a href="settings.html" class="profile-nav__item" target="settings">Налаштування</a>
+      </nav>
+
+      <div class="slider_days">
+        <p class="day">Понеділок</p>
+        <p class="day">Вівторок</p>
+        <p class="day">Середа</p>
+        <p class="day">Четвер</p>
+        <p class="day">П'ятниця</p>
+        <p class="day">Субота</p>
+        <p class="day">Неділя</p>
+      </div>
+      <div class="daily_ration-content">
+        <section class="calories">
+          <div class="calorie-info">
+            <div class="calorie-info__diagrams">
+              <svg
+                class="calorie-diagram"
+                width="240"
+                height="246"
+                viewBox="0 0 240 246"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="120" cy="123" r="102" stroke="#FFB9BA" stroke-width="24" fill="none" />
+                <circle
+                  cx="120"
+                  cy="123"
+                  r="102"
+                  stroke="#BB4748"
+                  stroke-width="24"
+                  fill="none"
+                  stroke-dasharray="452 192"
+                  stroke-linecap="round"
+                  data-progress="70" />
+              </svg>
+              <!-- TODO: Підставити споживані та денні калорії користувача з бази даних -->
+              <p class="calorie-info__total">1 176 / 1 613 ккал</p>
+            </div>
+          </div>
+          <div class="nutrients">
+            <div class="nutrient" data-progress="50">
+              <svg
+                class="nutrient__icon"
+                width="72"
+                height="74"
+                viewBox="0 0 72 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  opacity="0.3" />
+                <circle
+                  class="nutrient__progress-circle"
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  stroke-dasharray="182 182"
+                  stroke-linecap="round"
+                  transform="rotate(-90 36 37)" />
+              </svg>
+              <div class="nutrient__info">
+                <p class="nutrient__name">Білки</p>
+                <!-- TODO: Підставити значення білків з бази даних -->
+                <p class="nutrient__value">
+                  50 г
+                  <br />
+                  з 100 г
+                </p>
+              </div>
+            </div>
+
+            <div class="nutrient" data-progress="50">
+              <svg
+                class="nutrient__icon"
+                width="72"
+                height="74"
+                viewBox="0 0 72 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  opacity="0.3" />
+                <circle
+                  class="nutrient__progress-circle"
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  stroke-dasharray="182 182"
+                  stroke-linecap="round"
+                  transform="rotate(-90 36 37)" />
+              </svg>
+              <div class="nutrient__info">
+                <p class="nutrient__name">Жири</p>
+                <!-- TODO: Підставити значення жирів з бази даних -->
+                <p class="nutrient__value">
+                  50 г
+                  <br />
+                  з 100 г
+                </p>
+              </div>
+            </div>
+
+            <div class="nutrient" data-progress="50">
+              <svg
+                class="nutrient__icon"
+                width="72"
+                height="74"
+                viewBox="0 0 72 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  opacity="0.3" />
+                <circle
+                  class="nutrient__progress-circle"
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  stroke-dasharray="182 182"
+                  stroke-linecap="round"
+                  transform="rotate(-90 36 37)" />
+              </svg>
+              <div class="nutrient__info">
+                <p class="nutrient__name">Вуглеводи</p>
+                <!-- TODO: Підставити значення вуглеводів з бази даних -->
+                <p class="nutrient__value">
+                  50 г
+                  <br />
+                  з 100 г
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="stravas">
+          <div class="breakfast">
+            <div class="breakfast_header">
+              <p class="breakfast-name">Сніданок</p>
+              <div class="breakfast_header-el">
+                <p class="breakfast-cal">0 ккал</p>
+                <button breakfast-btn><img src="images/plus.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="breakfast_main"></div>
+          </div>
+          <div class="strava">
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">100 г</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">500 мл</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+          </div>
+          <div class="breakfast">
+            <div class="breakfast_header">
+              <p class="breakfast-name">Обід</p>
+              <div class="breakfast_header-el">
+                <p class="breakfast-cal">0 ккал</p>
+                <button breakfast-btn><img src="images/plus.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="breakfast_main"></div>
+          </div>
+          <div class="strava">
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">100 г</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">500 мл</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+          </div>
+          <div class="breakfast">
+            <div class="breakfast_header">
+              <p class="breakfast-name">Вечеря</p>
+              <div class="breakfast_header-el">
+                <p class="breakfast-cal">0 ккал</p>
+                <button breakfast-btn><img src="images/plus.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="breakfast_main"></div>
+          </div>
+          <div class="strava">
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">100 г</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">500 мл</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+          </div>
+          <div class="breakfast">
+            <div class="breakfast_header">
+              <p class="breakfast-name">Перекус</p>
+              <div class="breakfast_header-el">
+                <p class="breakfast-cal">0 ккал</p>
+                <button breakfast-btn><img src="images/plus.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="breakfast_main"></div>
+          </div>
+          <div class="strava">
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">100 г</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+            <div class="strava-item">
+              <div class="stravanamecal">
+                <p class="strava_name">Cтрава</p>
+                <p class="strava_cal">500 мл</p>
+              </div>
+              <div class="hrestik">
+                <p class="stravaccal">0 ккал</p>
+                <button><img src="images/cross.svg" alt="" /></button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer__content">
+        <div>
+          <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+          <span class="footer__logo-text">Eatly</span>
+        </div>
+        <div class="footer__links">
+          <a href="#" class="footer__link">Контакти</a>
+          <a href="#" class="footer__link">Про нас</a>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/slick.min.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/progressBar.js"></script>
+  </body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eatly</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <a href="index.html" class="header__logo" target="main">
+          <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+          <span class="header__logo-text">Eatly</span>
+        </a>
+        <nav class="header__nav">
+          <ul>
+            <li>
+              <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+                Рецепти
+              </a>
+            </li>
+            <li>
+              <a href="#"><img src="images/Profile.svg" alt="Profile" /></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container_main">
+        <div class="eatly_quote">
+          <h2 class="title_eatly">Eatly</h2>
+          <p class="quote">«Твоє меню — твій настрій»</p>
+        </div>
+        <div class="slider">
+          <div class="item"><img src="images/FOOD11.png" alt="" /></div>
+          <div class="item"><img src="images/FOOD22.png" alt="" /></div>
+          <div class="item"><img src="images/FOOD33.png" alt="" /></div>
+          <div class="item"><img src="images/FOOD11.png" alt="" /></div>
+          <div class="item"><img src="images/FOOD22.png" alt="" /></div>
+          <div class="item"><img src="images/FOOD33.png" alt="" /></div>
+        </div>
+      </div>
+
+      <!-- Calorie Calculator Section -->
+      <section class="calorie-section">
+        <div class="calorie-section__bg">
+          <!-- Nutrients -->
+          <!-- TODO: Підставити реальні значення БЖВ користувача з бази даних -->
+          <div class="nutrients">
+            <div class="nutrient" data-progress="50">
+              <svg
+                class="nutrient__icon"
+                width="72"
+                height="74"
+                viewBox="0 0 72 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  opacity="0.3" />
+                <circle
+                  class="nutrient__progress-circle"
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  stroke-dasharray="182 182"
+                  stroke-linecap="round"
+                  transform="rotate(-90 36 37)" />
+              </svg>
+              <div class="nutrient__info">
+                <p class="nutrient__name">Білки</p>
+                <!-- TODO: Підставити значення білків з бази даних -->
+                <p class="nutrient__value">
+                  50 г
+                  <br />
+                  з 100 г
+                </p>
+              </div>
+            </div>
+
+            <div class="nutrient" data-progress="50">
+              <svg
+                class="nutrient__icon"
+                width="72"
+                height="74"
+                viewBox="0 0 72 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  opacity="0.3" />
+                <circle
+                  class="nutrient__progress-circle"
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  stroke-dasharray="182 182"
+                  stroke-linecap="round"
+                  transform="rotate(-90 36 37)" />
+              </svg>
+              <div class="nutrient__info">
+                <p class="nutrient__name">Жири</p>
+                <!-- TODO: Підставити значення жирів з бази даних -->
+                <p class="nutrient__value">
+                  50 г
+                  <br />
+                  з 100 г
+                </p>
+              </div>
+            </div>
+
+            <div class="nutrient" data-progress="50">
+              <svg
+                class="nutrient__icon"
+                width="72"
+                height="74"
+                viewBox="0 0 72 74"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  opacity="0.3" />
+                <circle
+                  class="nutrient__progress-circle"
+                  cx="36"
+                  cy="37"
+                  r="29"
+                  stroke="#A8C958"
+                  stroke-width="12"
+                  fill="none"
+                  stroke-dasharray="182 182"
+                  stroke-linecap="round"
+                  transform="rotate(-90 36 37)" />
+              </svg>
+              <div class="nutrient__info">
+                <p class="nutrient__name">Вуглеводи</p>
+                <!-- TODO: Підставити значення вуглеводів з бази даних -->
+                <p class="nutrient__value">
+                  50 г
+                  <br />
+                  з 100 г
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Diagram -->
+          <div class="calorie-info">
+            <div class="calorie-info__diagrams">
+              <svg
+                class="calorie-diagram"
+                width="240"
+                height="246"
+                viewBox="0 0 240 246"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <circle cx="120" cy="123" r="102" stroke="#FFB9BA" stroke-width="24" fill="none" />
+                <circle
+                  cx="120"
+                  cy="123"
+                  r="102"
+                  stroke="#BB4748"
+                  stroke-width="24"
+                  fill="none"
+                  stroke-dasharray="452 192"
+                  stroke-linecap="round"
+                  data-progress="70" />
+              </svg>
+              <!-- TODO: Підставити споживані та денні калорії користувача з бази даних -->
+              <p class="calorie-info__total">1 176 / 1 613 ккал</p>
+            </div>
+          </div>
+
+          <!-- Text & Button -->
+          <div class="calorie-section__right">
+            <h2 class="calorie-section__title">Зустрічайте оновлену систему підрахунку калорій!</h2>
+            <p class="calorie-section__subtitle">Щоб спробувати, увійдіть</p>
+            <a href="#" class="calorie-section__button">Спробувати</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer__content">
+        <div>
+          <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+          <span class="footer__logo-text">Eatly</span>
+        </div>
+        <div class="footer__links">
+          <a href="#" class="footer__link">Контакти</a>
+          <a href="#" class="footer__link">Про нас</a>
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="JS/slick.min.js"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/progressBar.js"></script>
+  </body>
+</html>
