@@ -153,4 +153,5 @@ def logout():
     flash("Ви вийшли з профілю", "success")
     res = make_response(redirect(url_for('login')))
     res.set_cookie("logged", "", 0)
+
     return res
