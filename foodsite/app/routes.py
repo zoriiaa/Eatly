@@ -14,46 +14,36 @@ def load_user(user_id):
 
 @app.route("/")
 def index():
-    return "Головна сторінка"
+    return render_template('index.html')
+    
 
 @app.route("/profile/<name>")
 @login_required
 def profile(name):
-    return f"Користувач: {name}"
-
-
-@app.route("/profile/<name>/daily_diet")
-@login_required
-def daily_diet(name):
-    return "Денний раціон"
-    # return render_template("Денний раціон", username=username)
+    return render_template('ration.html', username=username)
 
 
 @app.route("/profile/<name>/favorite")
 @login_required
 def favorite(name):
-    return "Улюблені рецепти"
-    # return render_template("Улюблені рецепти", username=username)
+    return render_template('favorites.html', username=username)
 
 
 @app.route("/profile/<name>/settings")
 @login_required
 def settings(name):
-    # return f"""<p><a href="{url_for('logout')}">Вийти з профілю</a>
-    #             <p>user info: {current_user.get_id()}"""
-    return "Налаштування"
-
+    return render_template('settings.html', username=username)
 
 @app.route("/recipes")
 @login_required
 def recipes():
-    return "Сторінка рецептів"
+    return render_template('findRecipes.html')
 
 
 @app.route("/recipes/recipe_details")
 @login_required
 def recipe_details():
-    return "Подробиці рецепту"
+    return render_template('recipeDetalis.html')
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -89,7 +79,7 @@ def register():
             session["email"] = email
             flash("Реєстрація пройшла успішно!", "success")
             return redirect("/register_info")
-    return render_template('register.html', title="Register")
+    return render_template('registration.html')
 
 
 @app.route("/register_info", methods=["POST", "GET"])
@@ -122,7 +112,7 @@ def register_info():
         db.session.commit()
         flash("Профіль успішно збережено!", "success")
         return redirect("/login")
-    return render_template('register_info.html', title="RegisterInfo")
+    return render_template('registrationData.html')
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -136,14 +126,12 @@ def login():
             remember = True if request.form.get("remember") else False
             login_user(UserLogin(user), remember=remember)
             flash("Вхід успішний!", "success")
-
             res = make_response(redirect(url_for('profile', name=user.name)))
             res.set_cookie("logged", "yes", max_age=30 * 24 * 3600)  # 30 днів
             return res
         else:
             flash("Невірний email або пароль", "error")
-
-    return render_template("login.html", title="Login")
+    return render_template('login.html')
 
 
 @app.route('/logout')
