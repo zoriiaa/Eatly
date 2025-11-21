@@ -55,7 +55,5 @@ def import_data():
 
         db.session.commit()
 
-        print("Імпорт завершено успішно!")
-
 if __name__ == "__main__":
     import_data()
