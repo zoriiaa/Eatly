@@ -1,11 +1,17 @@
 from app import db
-from sqlalchemy import Enum
+from sqlalchemy import Enum, func
 from werkzeug.security import generate_password_hash, check_password_hash
 
 favourites_table = db.Table(
     'favourites',
     db.Column('user_id', db.Integer, db.ForeignKey('users.id', name='fk_favourites_user_id'), primary_key=True),
     db.Column('recipe_id', db.Integer, db.ForeignKey('recipes.id', name='fk_favourites_recipe_id'), primary_key=True)
+)
+
+recipeIngredients_table = db.Table(
+    'recipe_ingredients',
+    db.Column('recipe_id', db.Integer, db.ForeignKey('recipes.id', name='fk_recipe_ingredients_recipe_id'), primary_key=True),
+    db.Column('ingredient_id', db.Integer, db.ForeignKey('ingredient_list.id', name='fk_recipe_ingredients_ingredient_id'), primary_key=True)
 )
 
 class User(db.Model):
@@ -53,11 +59,27 @@ class Recipe(db.Model):
         secondary=favourites_table,
         back_populates='favourite_recipes'
     )
+    recipe_ingredients = db.relationship(
+        'IngredientList',
+        secondary=recipeIngredients_table,
+        back_populates='in_recipe'
+    )
+
+class IngredientList(db.Model):
+    __tablename__ = 'ingredient_list'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    in_recipe = db.relationship(
+        'Recipe',
+        secondary=recipeIngredients_table,
+        back_populates='recipe_ingredients'
+    )
 
 class MenuInfo(db.Model):
     __tablename__ = 'menu_info'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    menu_date = db.Column(db.Date, server_default=func.now())
     total_calories = db.Column(db.Integer)
     total_proteins = db.Column(db.Integer)
     total_fats = db.Column(db.Integer)
