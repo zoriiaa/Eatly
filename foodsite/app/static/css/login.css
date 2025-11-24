@@ -23,7 +23,6 @@
     line-height: 1.3;
 }
 
-/* Form */
 .login-form {
     display: flex;
     flex-direction: column;
@@ -82,7 +81,6 @@
     cursor: pointer;
 }
 
-/* Form Footer Top - для запам'ятати мене і посилання */
 .form-footer-top {
     display: flex;
     justify-content: space-between;
@@ -109,7 +107,6 @@
     margin: 0 !important;
 }
 
-/* Form Footer - тільки для кнопки */
 .form-footer {
     display: flex;
     justify-content: center;
@@ -123,10 +120,22 @@
     text-decoration: none;
     line-height: 1.3;
     white-space: nowrap;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-family: inherit;
+    vertical-align: baseline;
 }
 
-.login-link:hover {
+.login-link:hover,
+.login-link:focus {
     text-decoration: underline;
+}
+
+.login-link:focus {
+    outline: none;
 }
 
 .submit-btn {
@@ -225,4 +234,5 @@
     .footer-link {
         font-size: 28px;
     }
+
 }
