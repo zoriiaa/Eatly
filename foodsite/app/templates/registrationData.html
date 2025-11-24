@@ -12,14 +12,14 @@
   <body>
     <header class="header">
       <div class="container">
-        <a href="index.html" class="header__logo" target="main">
+        <button type="button" class="header__logo" onclick="window.location.href='/'">
           <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
           <span class="header__logo-text">Eatly</span>
-        </a>
+        </button>
         <nav class="header__nav">
           <ul>
             <li>
-              <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+              <a class="header__nav-recipes" href="" target="findrecipes">
                 Рецепти
               </a>
             </li>
@@ -66,8 +66,12 @@
                     </select>
                 </div>
                 <div class="form-footer">
-                    <a href="login.html" class="login-link">Я вже маю акаунт</a>
-                    <button type="submit" class="submit-btn" formaction="account.html">Готово</button>
+                    <button type="button" class="login-link" onclick="window.location.href='/login'">
+                      Я вже маю акаунт
+                    </button>
+                   <button type="button" class="submit-btn" onclick="window.location.href='/profile/<name>/settings'">
+                      Готово
+                  </button>
                 </div>
             </form>
         </div>
@@ -87,4 +91,5 @@
 
     <script src="JS/registration.js"></script>
 </body>
+
 </html>
