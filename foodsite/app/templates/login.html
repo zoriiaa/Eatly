@@ -56,8 +56,9 @@
           <button type="button" class="login-link" onclick="window.location.href='/register'">Ще не маєте профілю?</button>
         </div>
         <div class="form-footer">
-          <button type="button" class="submit-btn" onclick="window.location.href='/profile/<name>/settings'">
-              Увійти</button>
+        <button type="submit" class="submit-btn" formaction="{{ url_for('login') }}">
+           Увійти
+        </button>
         </div>
       </form>
     </div>
@@ -79,3 +80,4 @@
 
 
 </html>
+
