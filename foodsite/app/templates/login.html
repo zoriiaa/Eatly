@@ -13,19 +13,20 @@
 <body>
   <header class="header">
     <div class="container">
-      <a href="index.html" class="header__logo" target="main">
+      <button type="button" class="header__logo" onclick="window.location.href='/'">
         <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
         <span class="header__logo-text">Eatly</span>
-      </a>
+      </button>
       <nav class="header__nav">
         <ul>
           <li>
-            <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+            <button type="button" class="header__nav-recipes" onclick="window.location.href='/recipes'">
               Рецепти
-            </a>
+            </button>
           </li>
           <li>
-            <a href=""><img src="images/Profile.svg" alt="Profile" /></a>
+            <button type="button" class="profile-btn" onclick="window.location.href='/profile/<name>/settings'">
+              <img src="images/Profile.svg" alt="Profile" /></button>
           </li>
         </ul>
       </nav>
@@ -52,10 +53,11 @@
             <input type="checkbox" class="form-input remember-input" id="rememberMe">
             Запам'ятати мене
           </label>
-          <a href="registration.html" class="login-link">Ще не маєте профілю?</a>
+          <button type="button" class="login-link" onclick="window.location.href='/register'">Ще не маєте профілю?</button>
         </div>
         <div class="form-footer">
-          <button type="submit" class="submit-btn" formaction="account.html">Увійти</button>
+          <button type="button" class="submit-btn" onclick="window.location.href='/profile/<name>/settings'">
+              Увійти</button>
         </div>
       </form>
     </div>
@@ -74,5 +76,6 @@
   </footer>
   <script src="JS/login.js"></script>
 </body>
+
 
 </html>
