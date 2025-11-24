@@ -17,7 +17,7 @@
         <nav class="header__nav">
           <ul>
             <li>
-              <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+              <a class="header__nav-recipes" href="" target="findrecipes">
                 Рецепти
               </a>
             </li>
@@ -49,8 +49,12 @@
                     </div>
                 </div>
                 <div class="form-footer">
-                    <a href="login.html" class="login-link">Я вже маю акаунт</a>
-                    <button type="submit" class="submit-btn" formaction="registrationData.html">Продовжити</button>
+                    <button type="button" class="login-link" onclick="window.location.href='/login'">
+                      Я вже маю акаунт
+                    </button>
+                    <button type="button" class="submit-btn" onclick="window.location.href='/register_info'">
+                      Продовжити
+                    </button>
                 </div>
             </form>
         </div>
