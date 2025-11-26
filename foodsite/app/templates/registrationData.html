@@ -34,7 +34,7 @@
         <div class="registration-container">
             <h1 class="title">Особисті параметри</h1>
 
-            <form class="registration-form">
+            <form class="registration-form" method="POST" action="{{ url_for('register_info') }}">
                 <div class="form-group">
                     <label class="form-label">Вік</label>
                     <input type="number" class="form-input" min="0" max="100" placeholder="18" required>
@@ -69,9 +69,7 @@
                     <button type="button" class="login-link" onclick="window.location.href='/login'">
                       Я вже маю акаунт
                     </button>
-                   <button type="button" class="submit-btn" onclick="window.location.href='/profile/<name>/settings'">
-                      Готово
-                  </button>
+                   <button type="submit" class="submit-btn">Готово </button>
                 </div>
             </form>
         </div>
@@ -93,3 +91,4 @@
 </body>
 
 </html>
+
