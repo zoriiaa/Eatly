@@ -36,7 +36,7 @@
     <div class="login-container">
       <h1 class="title">Вхід</h1>
 
-      <form class="login-form">
+      <form class="login-form" method="POST" action="{{ url_for('login') }}">
         <div class="form-group">
           <label class="form-label">E-mail або логін</label>
           <input type="email" class="form-input" placeholder="Example23@gmail.com" required>
@@ -56,9 +56,7 @@
           <button type="button" class="login-link" onclick="window.location.href='/register'">Ще не маєте профілю?</button>
         </div>
         <div class="form-footer">
-        <button type="submit" class="submit-btn" formaction="{{ url_for('login') }}">
-           Увійти
-        </button>
+       <button type="submit" class="submit-btn">Увійти</button>
         </div>
       </form>
     </div>
@@ -80,4 +78,5 @@
 
 
 </html>
+
 
