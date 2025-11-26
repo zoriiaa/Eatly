@@ -32,7 +32,7 @@
         <div class="registration-container">
             <h1 class="title">Реєстрація</h1>
 
-            <form class="registration-form">
+            <form class="registration-form" method="POST" action="{{ url_for('register') }}">
                 <div class="form-group">
                     <label class="form-label">E-mail</label>
                     <input type="email" class="form-input" placeholder="Example23@gnail.com" required>
@@ -52,9 +52,7 @@
                     <button type="button" class="login-link" onclick="window.location.href='/login'">
                       Я вже маю акаунт
                     </button>
-                        <button type="submit" class="submit-btn" formaction="{{ url_for('register_info') }}">
-                          Продовжити
-                        </button>
+                        <button type="submit" class="submit-btn">Продовжити</button>
                 </div>
             </form>
         </div>
