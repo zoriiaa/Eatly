@@ -19,12 +19,20 @@
         <nav class="header__nav">
           <ul>
             <li>
-              <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+              <button
+                type="button"
+                class="header__nav-recipes"
+                onclick="window.location.href='/recipes'">
                 Рецепти
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#"><img src="images/Profile.svg" alt="Profile" /></a>
+              <button
+                type="button"
+                class="profile-btn"
+                onclick="window.location.href='/profile/<name>/settings'">
+                <img src="images/Profile.svg" alt="Profile" />
+              </button>
             </li>
           </ul>
         </nav>
@@ -202,7 +210,12 @@
           <div class="calorie-section__right">
             <h2 class="calorie-section__title">Зустрічайте оновлену систему підрахунку калорій!</h2>
             <p class="calorie-section__subtitle">Щоб спробувати, увійдіть</p>
-            <a href="#" class="calorie-section__button">Спробувати</a>
+            <button
+              type="button"
+              class="calorie-section__button"
+              onclick="window.location.href='/login'">
+              Спробувати
+            </button>
           </div>
         </div>
       </section>

@@ -18,12 +18,20 @@
         <nav class="header__nav">
           <ul>
             <li>
-              <a class="header__nav-recipes" href="findRecipes.html" target="findrecipes">
+              <button
+                type="button"
+                class="header__nav-recipes"
+                onclick="window.location.href='/recipes'">
                 Рецепти
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#"><img src="images/Profile.svg" alt="Profile" /></a>
+              <button
+                type="button"
+                class="profile-btn"
+                onclick="window.location.href='/profile/<name>/settings'">
+                <img src="images/Profile.svg" alt="Profile" />
+              </button>
             </li>
           </ul>
         </nav>
