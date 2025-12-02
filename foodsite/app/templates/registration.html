@@ -32,6 +32,16 @@
         <div class="registration-container">
             <h1 class="title">Реєстрація</h1>
 
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}  
+          
             <form class="registration-form" method="POST" action="{{ url_for('register') }}">
                 <div class="form-group">
                     <label class="form-label">E-mail</label>
