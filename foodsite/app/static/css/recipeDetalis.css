@@ -1,0 +1,192 @@
+.main {
+    flex: 1;
+    display: flex;
+    padding: 60px 40px;
+    gap: 40px;
+}
+
+.recipe-card {
+    background: #F3E7CF;
+    padding: 40px;
+    border-radius: 50px;
+    width: 40%;
+    max-height: 649px;
+}
+
+
+.recipe-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.recipe-header h2 {
+    margin: 0;
+    font-size: 32px;
+}
+
+
+.kcal {
+    font-size: 24px;
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.fav-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: transform 0.15s ease;
+}
+
+.heart {
+    transition: opacity 0.2s ease;
+}
+
+.filled {
+    display: none;
+}
+
+.fav-btn:hover {
+    transform: scale(1.08);
+}
+
+.menu-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.add-btn {
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 20vb;
+}
+
+.dropdown-menu button {
+    padding: 8px 12px;
+    border: none;
+    background: #f2f2f2;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+    background: #e5e5e5;
+}
+
+.menu-wrapper.active .dropdown-menu {
+    display: flex;
+}
+
+
+.recipe-img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50px;
+    margin-bottom: 30px;
+}
+
+
+.nutrients {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.ingredients-card {
+    background: #F3E7CF;
+    padding: 30px;
+    width: 18%;
+    border-radius: 50px;
+    text-align: center;
+}
+
+
+.ingredients-card h3 {
+    margin-top: 0;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+
+.ingredient-item {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.steps {
+    width: 37%;
+}
+
+.steps h3 {
+    font-size: 32px;      
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.step-number {
+    width: 67px;
+    height: 67px;
+    min-width: 67px;
+    background: #A8C958;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-right: 20px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.step-text {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.fav-btn.active .filled {
+    animation: pop 0.25s ease;
+}
