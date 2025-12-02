@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eatly</title>
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/recipeDetalis.css" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <button type="button" class="header__logo" onclick="window.location.href='/'">
+                <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+                <span class="header__logo-text">Eatly</span>
+            </button>
+            <nav class="header__nav">
+                <ul>
+                    <li>
+                        <button type="button" class="header__nav-recipes" onclick="window.location.href='/recipes'">
+                            Рецепти
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="profile-btn"
+                            onclick="window.location.href='/profile/<name>/settings'">
+                            <img src="images/Profile.svg" alt="Profile" />
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+    <main class="main">
+        <div class="recipe-card">
+            <div class="recipe-header">
+                <!--Назва з бази-->
+                <h2>Назва рецепту</h2>
+                <!--Калорії з бази-->
+                <span class="kcal">500 ккал</span>
+                <button class="fav-btn" onclick="toggleFav(this)">
+
+                    <svg class="heart empty" width="37" height="33" viewBox="0 0 37 33" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M32.6283 3.90222C31.7975 3.06139 30.8111 2.39438 29.7255 1.9393C28.6398 1.48423 27.4762 1.25 26.301 1.25C25.1258 1.25 23.9622 1.48423 22.8765 1.9393C21.7909 2.39438 20.8045 3.06139 19.9737 3.90222L18.2496 5.64642L16.5254 3.90222C14.8473 2.20459 12.5713 1.25088 10.1981 1.25088C7.82494 1.25088 5.54895 2.20459 3.87085 3.90222C2.19275 5.59984 1.25 7.90231 1.25 10.3031C1.25 12.7039 2.19275 15.0064 3.87085 16.704L18.2496 31.25L32.6283 16.704C33.4594 15.8636 34.1188 14.8657 34.5686 13.7674C35.0185 12.6691 35.25 11.4919 35.25 10.3031C35.25 9.11428 35.0185 7.93709 34.5686 6.8388C34.1188 5.74052 33.4594 4.74265 32.6283 3.90222Z"
+                            fill="#F3E7CF" stroke="black" stroke-width="2.5" />
+                    </svg>
+
+                    <svg class="heart filled" width="37" height="33" viewBox="0 0 37 33" fill="red"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M32.6283 3.90222C31.7975 3.06139 30.8111 2.39438 29.7255 1.9393C28.6398 1.48423 27.4762 1.25 26.301 1.25C25.1258 1.25 23.9622 1.48423 22.8765 1.9393C21.7909 2.39438 20.8045 3.06139 19.9737 3.90222L18.2496 5.64642L16.5254 3.90222C14.8473 2.20459 12.5713 1.25088 10.1981 1.25088C7.82494 1.25088 5.54895 2.20459 3.87085 3.90222C2.19275 5.59984 1.25 7.90231 1.25 10.3031C1.25 12.7039 2.19275 15.0064 3.87085 16.704L18.2496 31.25L32.6283 16.704C33.4594 15.8636 34.1188 14.8657 34.5686 13.7674C35.0185 12.6691 35.25 11.4919 35.25 10.3031C35.25 9.11428 35.0185 7.93709 34.5686 6.8388C34.1188 5.74052 33.4594 4.74265 32.6283 3.90222Z"
+                            stroke="black" stroke-width="2.5" />
+                    </svg>
+                </button>
+                <div class="menu-wrapper">
+                    <button class="add-btn">
+                        <svg width="39" height="39" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19.5 13V26M13 19.5H26M8.125 4.875H30.875C32.6699 4.875 34.125 6.33007 34.125 8.125V30.875C34.125 32.6699 32.6699 34.125 30.875 34.125H8.125C6.33007 34.125 4.875 32.6699 4.875 30.875V8.125C4.875 6.33007 6.33007 4.875 8.125 4.875Z"
+                                stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <button>Сніданок</button>
+                        <button>Обід</button>
+                        <button>Вечеря</button>
+                        <button>Перекус</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--Фото з бази-->
+            <img src="images/food1.jpg" class="recipe-img" />
+            <!--БЖД з бази-->
+            <div class="nutrients">
+                <p>Білки: 20 г </p>
+                <p>Жири: 40 г </p>
+                <p>Вуглеводи: 50 г</p>
+            </div>
+        </div>
+
+
+        <!--Інгредієнти з бази-->
+        <div class="ingredients-card">
+            <h3>Інгредієнти</h3>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+            <div class="ingredient-item"><b>Інгредієнт:</b> 20 г</div>
+        </div>
+
+
+        <!--Рецепт з бази-->
+        <div class="steps">
+            <h3>Приготування</h3>
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                </div>
+            </div>
+
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                </div>
+            </div>
+
+
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type
+                    specimen book.
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <div class="footer__content">
+            <div>
+                <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+                <span class="footer__logo-text">Eatly</span>
+            </div>
+            <div class="footer__links">
+                <a href="#" class="footer__link">Контакти</a>
+                <a href="#" class="footer__link">Про нас</a>
+            </div>
+        </div>
+    </footer>
+    <script src="JS/recipeDetalis.js"></script>
+</body>
+
+</html>
