@@ -32,29 +32,19 @@
         <div class="registration-container">
             <h1 class="title">Реєстрація</h1>
 
-            {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-            <div class="flash-messages">
-                {% for category, message in messages %}
-                <div class="flash {{ category }}">{{ message }}</div>
-                {% endfor %}
-            </div>
-            {% endif %}
-            {% endwith %}  
-          
             <form class="registration-form" method="POST" action="{{ url_for('register') }}">
                 <div class="form-group">
                     <label class="form-label">E-mail</label>
-                    <input type="email" class="form-input" placeholder="Example23@gnail.com" required>
+                    <input type="email" name="email" class="form-input" placeholder="Example23@gmail.com" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Логін </label>
-                    <input type="text" class="form-input" placeholder="Example23" required>
+                    <input type="text" name="name" class="form-input" placeholder="Example23" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Пароль</label>
                     <div class="password-wrapper">
-                        <input type="password" class="form-input password-input" placeholder="************" required>
+                        <input type="password" name="psw" class="form-input password-input" placeholder="************" required>
                         <img src="images/eye-off.svg" alt="Toggle password" class="eye-icon">
                     </div>
                 </div>
@@ -83,3 +73,4 @@
     <script src="JS/registration.js"></script>
 </body>
 </html>
+
