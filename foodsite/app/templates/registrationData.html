@@ -37,19 +37,19 @@
             <form class="registration-form" method="POST" action="{{ url_for('register_info') }}">
                 <div class="form-group">
                     <label class="form-label">Вік</label>
-                    <input type="number" class="form-input" min="0" max="100" placeholder="18" required>
+                    <input type="number" name="age" class="form-input" min="0" max="100" placeholder="18" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Зріст</label>
-                    <input type="number" class="form-input" min="0" max="250" placeholder="188" required>
+                    <input type="number" name="height" class="form-input" min="0" max="250" placeholder="188" required>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Вага</label>
-                    <input type="number" class="form-input" min="0" max="300" placeholder="62" required>
+                    <input type="number" name="weight" class="form-input" min="0" max="300" placeholder="62" required>
                 </div>
                  <div class="form-group">
                     <label class="form-label">Ціль</label>
-                    <select class="form-input" required>
+                    <select name="goal" class="form-input" required>
                         <option value=""></option>
                         <option value="male">Зменшення ваги</option>
                         <option value="female">Набір ваги</option>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <label class="form-label">Стать</label>
-                    <select class="form-input" required>
+                    <select name="gender" class="form-input" required>
                         <option value=""></option>
                         <option value="male">Чоловіча</option>
                         <option value="female">Жіноча</option>
@@ -91,4 +91,3 @@
 </body>
 
 </html>
-
