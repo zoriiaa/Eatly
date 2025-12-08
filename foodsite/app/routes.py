@@ -43,7 +43,7 @@ def recipes():
 @app.route("/recipes/recipe_details")
 @login_required
 def recipe_details():
-    return render_template('recipeDetalis.html')
+    return render_template('recipeDetails.html')
 
 
 @app.route("/register", methods=["POST", "GET"])
@@ -143,3 +143,4 @@ def logout():
     res.set_cookie("logged", "", 0)
 
     return res
+
