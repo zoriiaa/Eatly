@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Recipes</title>
-    <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/findRecipes.css" />
+    <link rel="icon" href="../static/images/logo.svg" type="../static/image/svg+xml" />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/findRecipes.css" />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <a href="index.html" class="header__logo" target="main">
-          <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+          <img src="../static/images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
           <span class="header__logo-text">Eatly</span>
         </a>
         <nav class="header__nav">
@@ -29,8 +29,8 @@
               <button
                 type="button"
                 class="profile-btn"
-                onclick="window.location.href='/profile/<name>/settings'">
-                <img src="images/Profile.svg" alt="Profile" />
+                onclick="window.location.href='/settings'">
+                <img src="../static/images/Profile.svg" alt="Profile" />
               </button>
             </li>
           </ul>
@@ -40,9 +40,10 @@
 
     <main>
       <section class="search-section">
-        <div class="search-bar">
-          <input type="text" class="search-bar__input" placeholder="Показувати рецепти з..." />
-          <svg
+        <form method="POST" action="{{ url_for('recipes') }}" class="search-bar">
+          <input type="text" class="search-bar__input" name="ingredients" placeholder="Показувати рецепти з..." />
+          <button type="submit">Пошук
+            <svg
             class="search-bar__icon"
             width="23"
             height="24"
@@ -51,8 +52,10 @@
             xmlns="http://www.w3.org/2000/svg">
             <circle cx="10" cy="10" r="8" stroke="#A8C958" stroke-width="2" />
             <path d="M16 16L21 21" stroke="#A8C958" stroke-width="2" stroke-linecap="round" />
-          </svg>
-        </div>
+             </svg>
+          </button>
+        </form>
+
         <div class="tags">
           <div class="tag">
             <span class="tag__text">Яйця</span>
@@ -92,139 +95,27 @@
       </section>
 
       <section class="grid-recipes">
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
+        {% if recipes %}
+        {% for recipe in recipes}
+        <a href="{{ url_for('recipe_details') }}" class="recipe-card">
+          <img src="../static/images/food1.png" alt="Recipe" class="recipe-card__image" />
           <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
+            <h3>{{recipe.name}}</h3>
+            <p>{{recipe.calories}} ккал</p>
           </div>
         </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
-        <a href="" class="recipe-card">
-          <img src="images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>Рецепт</h3>
-            <p>0 ккал</p>
-          </div>
-        </a>
+        {% endfor %}
+        {% else %}
+          <p>Рецептів не знайдено.</p>
+        {% endif %}
       </section>
+
     </main>
 
     <footer>
       <div class="footer__content">
         <div>
-          <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+          <img class="footer__logo" src="../static/images/logo.svg" alt="Eatly Logo" />
           <span class="footer__logo-text">Eatly</span>
         </div>
         <div class="footer__links">
