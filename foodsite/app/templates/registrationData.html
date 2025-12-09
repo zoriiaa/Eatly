@@ -34,6 +34,17 @@
         <div class="registration-container">
             <h1 class="title">Особисті параметри</h1>
 
+           {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+              <div class="flash-messages">
+                  {% for category, message in messages %}
+                  <div class="flash {{ category }}">{{ message }}</div>
+                  {% endfor %}
+              </div>
+              {% endif %}
+              {% endwith %}
+
+          
             <form class="registration-form" method="POST" action="{{ url_for('register_info') }}">
                 <div class="form-group">
                     <label class="form-label">Вік</label>
@@ -91,4 +102,5 @@
 </body>
 
 </html>
+
 
