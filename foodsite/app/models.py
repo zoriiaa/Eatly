@@ -24,7 +24,7 @@ class User(db.Model):
     age = db.Column(db.Integer)
     height = db.Column(db.Float)
     weight = db.Column(db.Float)
-    gender = db.Column(Enum('Чоловік', 'Жінка', name='gender_variants'), nullable=True)
+    gender = db.Column(Enum('male', 'female', name='gender_variants'), nullable=True)
     goal = db.Column(Enum('Набрати вагу', 'Скинути вагу', 'Підтримувати вагу', name='goal_types', native_enum=False), nullable=True)
     goal_weight = db.Column(db.Float)
 
@@ -97,3 +97,4 @@ class MenuItems(db.Model):
 
     menu = db.relationship('MenuInfo', back_populates='items')
     recipe = db.relationship('Recipe', back_populates='menu_items')
+
