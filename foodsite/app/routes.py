@@ -1,9 +1,10 @@
 from app import app, db, login_manager
-from app.models import User
+from app.models import User, Recipe, IngredientList, MenuInfo, MenuItems
 from flask_login import login_required, login_user, logout_user
 from flask import render_template, request, redirect, url_for, flash, make_response, session
 from email_validator import validate_email, EmailNotValidError
-from auth.UserLogin import UserLogin
+from app.auth.UserLogin import UserLogin
+from app.functions.search_recipe import search_recipes, filter_recipes_by_ingredients, calculate_calories, get_recipe_by_id
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -17,40 +18,84 @@ def index():
     return render_template('index.html')
     
 
-@app.route("/profile/<name>")
+@app.route("/profile/<name>", methods = ["POST"])
 @login_required
 def profile(name):
-    return render_template('ration.html', username=username)
+    data = request.form
+
+    weight = float(data["weight"])
+    height = float(data["height"])
+    age = int(data["age"])
+    gender = data["gender"]
+    activity =  data["activity"]
+    goal = data["goal"]
+
+    daily_calories = calculate_calories(weight, height, age, gender, activity, goal)
+
+    return render_template('ration.html', calories=daily_calories, name=name)
 
 
 @app.route("/profile/<name>/favorite")
 @login_required
 def favorite(name):
-    return render_template('favorites.html', username=username)
+    return render_template('favorites.html', name=name)
 
 
 @app.route("/profile/<name>/settings")
 @login_required
 def settings(name):
-    return render_template('settings.html', username=username)
+    return render_template('settings.html', name=name)
 
-@app.route("/recipes")
+@app.route("/recipes", methods=["GET", "POST"])
 @login_required
 def recipes():
-    return render_template('findRecipes.html')
+    if request.method == "POST":
+        ingredients = request.form.get("ingredients", "")
+        ingredients_list = [i.strip() for i in ingredients.split(",")]
+        recipes_list = filter_recipes_by_ingredients(ingredients_list)
+        return render_template("findRecipes.html", recipes=recipes_list)
+
+    keyword = request.args.get("keyword", "")
+    recipes_list = search_recipes(keyword)
+    return render_template("findRecipes.html", recipes=recipes_list)
 
 
-@app.route("/recipes/recipe_details")
-@login_required
+@app.route("/recipe")
 def recipe_details():
-    return render_template('recipeDetails.html')
+    recipe_id = request.args.get("id")
+
+    recipe = Recipe.query.get(recipe_id)
+
+    if recipe is None:
+        return "Рецепт не знайдено", 404
+
+    return render_template(
+        "recipeDetails.html",
+        name=recipe.name,
+        ingredients=recipe.recipe_ingredients,
+        instructions=recipe.instructions,
+        calories=recipe.calories,
+        proteins=recipe.proteins,
+        fats=recipe.fats,
+        carbs=recipe.carbs,
+        image=recipe.image
+    )
+
+
+
+
+@app.route("/recipe_details")
+@login_required
+def recipe_details_view(recipe_id):
+    recipe = Recipe.query.get_or_404(recipe_id)
+    return render_template('recipeDetails.html', recipe=recipe)
 
 
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if request.method == "POST":
-        name = request.form['name']
         email = request.form['email']
+        name = request.form['name']
         psw = request.form['psw']
 
         if len(name) <= 4:
@@ -69,8 +114,8 @@ def register():
                 flash("Користувач з таким email вже існує!", "error")
                 return redirect("/register")
             user = User(
-                name=name,
-                email=email
+                email=email,
+                name=name
             )
             user.set_password(psw)
 
@@ -143,4 +188,3 @@ def logout():
     res.set_cookie("logged", "", 0)
 
     return res
-
