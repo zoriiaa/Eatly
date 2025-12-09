@@ -4,16 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eatly</title>
-    <link rel="icon" href="images/logo.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="css/slick.css" />
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="icon" href="../static/images/logo.svg" type="../static/image/svg+xml" />
+    <link rel="stylesheet" href="../static/css/slick.css" />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/css/index.css" />
   </head>
   <body>
     <header class="header">
       <div class="container">
-        <a href="index.html" class="header__logo" target="main">
-          <img src="images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
+          <button
+                type="button"
+                class="header__logo"
+                onclick="window.location.href='/'">
+                Рецепти
+              </button>
+          <img src="../static/images/logo.svg" alt="Eatly Logo" class="header__logo-icon" />
           <span class="header__logo-text">Eatly</span>
         </a>
         <nav class="header__nav">
@@ -30,7 +35,7 @@
               <button
                 type="button"
                 class="profile-btn"
-                onclick="window.location.href='/profile/<name>/settings'">
+                onclick="window.location.href='/settings'">
                 <img src="images/Profile.svg" alt="Profile" />
               </button>
             </li>
@@ -224,7 +229,7 @@
     <footer>
       <div class="footer__content">
         <div>
-          <img class="footer__logo" src="images/logo.svg" alt="Eatly Logo" />
+          <img class="footer__logo" src="../static/images/logo.svg" alt="Eatly Logo" />
           <span class="footer__logo-text">Eatly</span>
         </div>
         <div class="footer__links">
@@ -234,8 +239,8 @@
       </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="JS/slick.min.js"></script>
-    <script src="JS/main.js"></script>
-    <script src="JS/progressBar.js"></script>
+    <script src="../static/JS/slick.min.js"></script>
+    <script src="../static/JS/main.js"></script>
+    <script src="../static/JS/progressBar.js"></script>
   </body>
 </html>
