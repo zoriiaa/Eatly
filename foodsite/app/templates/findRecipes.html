@@ -94,35 +94,19 @@
         </div>
       </section>
 
-      <section class="grid-recipes">
-        {% if recipes %}
-        {% for recipe in recipes}
-        <a href="{{ url_for('recipe_details') }}" class="recipe-card">
-          <img src="../static/images/food1.png" alt="Recipe" class="recipe-card__image" />
-          <div class="recipe-card__content">
-            <h3>{{recipe.name}}</h3>
-            <p>{{recipe.calories}} ккал</p>
-          </div>
-        </a>
-        {% endfor %}
-        {% else %}
-          <p>Рецептів не знайдено.</p>
-        {% endif %}
-      </section>
-
-    </main>
-
-    <footer>
-      <div class="footer__content">
-        <div>
-          <img class="footer__logo" src="../static/images/logo.svg" alt="Eatly Logo" />
-          <span class="footer__logo-text">Eatly</span>
+     <section class="grid-recipes">
+  {% if recipes %}
+    {% for recipe in recipes %}
+      <a href="{{ url_for('recipe_details', id=recipe.id) }}" class="recipe-card">
+        <img src="../static/images/food1.png" alt="Recipe" class="recipe-card__image" />
+        <div class="recipe-card__content">
+          <h3>{{ recipe.name }}</h3>
+          <p>{{ recipe.calories }} ккал</p>
         </div>
-        <div class="footer__links">
-          <a href="#" class="footer__link">Контакти</a>
-          <a href="#" class="footer__link">Про нас</a>
-        </div>
-      </div>
-    </footer>
-  </body>
-</html>
+      </a>
+    {% endfor %}
+  {% else %}
+    <p>Рецептів не знайдено.</p>
+  {% endif %}
+</section>
+
