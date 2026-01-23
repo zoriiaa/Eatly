@@ -8,7 +8,7 @@
 
 ### Технології
 1.  Frontend: HTML/CSS, JS
-2.  Backend: Python, Flask, Postman
+2.  Backend: Python, Flask
 3.  Database: SQLAlchemy
 4.  CI/CD: GitHub 
 
